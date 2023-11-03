@@ -14,7 +14,6 @@
     $popup = json_decode($data->data, true);
     
 @endphp
-    {{-- @dd($popup1['heading']); --}}
 
 
     <div class="container-fluid ">    
