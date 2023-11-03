@@ -62,6 +62,7 @@ class PopupController extends Controller
     public function store(Request $request)
     {
         $shop = auth()->user();
+
         $request->validate([
             'heading' => 'required',
             'description' => 'required',

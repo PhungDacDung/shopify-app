@@ -30,6 +30,13 @@
 
 
         </ul>
+        <ul class="nav-right">
+            <li>
+                <a href="#" class="balance-notify-text ">
+                    <span class="font-weight-bolder ">{{ auth()->user()->name }}</span>
+                </a>
+            </li>
+        </ul>
         
     </div>
 </div>

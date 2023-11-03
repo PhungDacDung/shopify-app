@@ -4,14 +4,15 @@
     <link rel="stylesheet" href="{{ asset('css/popup.css') }}">
 
     <div class="container-fluid px-0">
+        <div class="mb-3 d-flex justify-content-end">
+            <a class="btn btn-primary " href="{{ URL::tokenRoute('home') }}">Back</a>
+        </div>
         <div class="row g-0">
             <div class="col-lg-4 border-right card shadow-sm w-25 my-5 h-100">
-                {{-- @include('shopify.popups.edit') --}}
 
                 {{ Form::open([
                     'url' => route('shopify.popups.store'),
                     'method' => 'POST',
-                    'enctype' => 'multipart/form-data',
                 ]) }}
                 @sessionToken
 
@@ -19,17 +20,28 @@
                     <label for="exampleFormControlInput1" class="form-label">Heading</label>
                     <input type="text" class="form-control inp-heading" name="heading" id="exampleFormControlInput1"
                         value="" placeholder="" onchange=test()>
+                        @if ($errors->has('heading'))
+                        <div class="error text-danger ">{{ $errors->first('heading') }}</div>
+                    @endif
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Description</label>
                     <textarea class="form-control inp-des" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    @if ($errors->has('description'))
+                    <div class="error text-danger ">{{ $errors->first('description') }}</div>
+                @endif
                 </div>
 
-                <div class="input-group mb-3">
-        
+                <div class="mb-3">
+
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="image" id="inputGroupFile01">
-                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        <label for="exampleInputPassword1" class="text-dark">Image URL</label>
+                        <input type="text" class="form-control imageURL" id="exampleInputPassword1"
+                            placeholder="http://image_url" name="imageURL" value="">
+                        <a href="https://bom.so/">(Please shorten the link before entering)</a>
+                        @if ($errors->has('imageURL'))
+                            <div class="error text-danger ">{{ $errors->first('imageURL') }}</div>
+                        @endif
                     </div>
                 </div>
 
@@ -46,37 +58,35 @@
                 </div>
 
                 <button type="submit" class="btn btn-success">Save</button>
+                
                 {{ Form::close() }}
 
             </div>
 
             <div class="col-lg-8 card shadow-sm  ">
-            
-                    <div class="popup">
-                        <div class="popup-content" >
-                            <h1 id="heading"  class="heading">Welcome to store</h1>
-                            <span class="close" id="closePopup">&times;</span>
-                            <p class="description" >Let's custom your own popup</p>
-                            <div class="popup-img">
-                                <img src="https://bom.so/sMRqoC" alt="" class="img-popup"
-                                    style="width:380px">
-                            </div>
-                            <div>
-                                <button class="btn btn-success mt-3">Shop now</button>
-                            </div>
+
+                <div class="popup">
+                    <div class="popup-content">
+                        <h1 id="heading" class="heading">Welcome to store</h1>
+                        <span class="close" id="closePopup">&times;</span>
+                        <p class="description">Let's custom your own popup</p>
+                        <div class="popup-img">
+                            <img src="https://bom.so/sMRqoC" alt="" class="img-popup" style="width:380px">
+                        </div>
+                        <div>
+                            <button class="btn btn-success mt-3">Shop now</button>
                         </div>
                     </div>
-              
+                </div>
+
             </div>
 
         </div>
     </div>
 
     <script>
-        
-
         window.addEventListener('load', function() {
-            
+
             document.getElementById('popup').style.display = 'block';
         });
 
@@ -117,7 +127,7 @@
         inputHeading.addEventListener('change', function(element) {
             heading.innerHTML = inputHeading.value;
         });
-       
+
 
 
         /* Change description */
@@ -153,6 +163,5 @@
                 }
             });
         });
-
     </script>
 @endsection

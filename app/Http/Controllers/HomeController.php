@@ -39,13 +39,13 @@ class HomeController extends Controller
 
     public function getEffectify(Request $request)
     {
-        $shop_url = $request->get("shop");
-        $effect = Effect::where("shopify_url", $shop_url)->where("status", 1)->first();
-        if ($effect) {
-            $template = $effect->template;
-            return response()->view("shopify.effect_scripts.{$template->name}", ["effect" => $effect])
-                ->header("Content-Type", "application/javascript")->header("Cache-Control", "no-store, no-cache, must-revalidate");
-        } else
-            return response("")->header("Content-Type", "application/javascript");
+        // $shop_url = $request->get("shop");
+        // $effect = Effect::where("shopify_url", $shop_url)->where("status", 1)->first();
+        // if ($effect) {
+        //     $template = $effect->template;
+        //     return response()->view("shopify.effect_scripts.{$template->name}", ["effect" => $effect])
+        //         ->header("Content-Type", "application/javascript")->header("Cache-Control", "no-store, no-cache, must-revalidate");
+        // } else
+        //     return response("")->header("Content-Type", "application/javascript");
     }
 }

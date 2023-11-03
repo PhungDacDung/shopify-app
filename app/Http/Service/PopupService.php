@@ -28,15 +28,11 @@ class PopupService{
 
         $data = json_encode($array);
 
-        // if($request->hasFile('image')){
-        //     $request->file('image')->move('images', $request->file('image')->getClientOriginalName());
-        //     $img = $request->file('image')->getClientOriginalName();
-        // }
-        
 
         $popup = new Popup();
         $popup->shop = $name;
         $popup->data = $data;
+        $popup->status = 1;
 
         $popup->save();
         // return redirect()->to(route("layouts.main"));
@@ -68,18 +64,10 @@ class PopupService{
 
         $popup->data = $data;
         
-        // if($request->hasFile('image')){
-        //     $request->file('image')->move('images', $request->file('image')->getClientOriginalName());
-        //     $img = $request->file('image')->getClientOriginalName();
-        //     $popup->img = $img;
-        // }
-        // else{
-        //     $popup->img = $popup->img;
-        // }
+
 
         $popup->save();
         
-        // return redirect()->to(route("layouts.main"));
 
     }
 }
