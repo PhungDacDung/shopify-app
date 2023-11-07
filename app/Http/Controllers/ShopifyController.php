@@ -12,9 +12,10 @@ class ShopifyController extends Controller
     /*  webhook customers/data_request */
     public function customersDataRequest(Request $request)
     {
-        dd(2);
         return response()->json(
-            [],
+            [
+                
+            ],
             200
         );
     }
@@ -22,7 +23,6 @@ class ShopifyController extends Controller
     /*  webhook customers/redact */
     public function customersRedact(Request $request)
     {
-        dd(1);
         return response()->json(
             [],
             200
@@ -31,7 +31,6 @@ class ShopifyController extends Controller
 
     public function shopRedact(Request $request)
     {
-        dd($request->domain);
 
         $getUser = User::where('name', $request->shop_domain)->first();
         if ($getUser) {
@@ -44,7 +43,6 @@ class ShopifyController extends Controller
     }
     public function app_uninstalled(Request $request)
     {
-        dd($request->domain);
         $shop = User::where('name', $request->domain)->delete();
 
         return response()->json(["status" => "succeed"]);

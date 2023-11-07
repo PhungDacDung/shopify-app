@@ -82,11 +82,7 @@
             <div class="col-lg-8 h-auto">
 
                 <div class="popup">
-                    {{-- @foreach ($data as $item)
-                        @php
-                            $popup = json_decode($item->data, true);
 
-                        @endphp --}}
                         <div class="popup-content" style="background-color: {{ $popup['backgroundColor'] }}">
                             <h1 id="heading" style="color: {{ $popup['textColor'] }}; max-width : 400px" class="heading ">
                                 {{ $popup['heading'] }}</h1>
@@ -101,7 +97,6 @@
                                 <button class="btn btn-success mt-3 btn-shop">Shop</button>
                             </div>
                         </div>
-                    {{-- @endforeach --}}
                 </div>
 
 
@@ -116,6 +111,35 @@
     </div>
 
     <script>
+
+// document.addEventListener('DOMContentLoaded', function() {
+
+//     alert(localStorage.getItem('popupShown'));
+//     if (!localStorage.getItem('popupShown')) {
+
+//         document.querySelector('.popup-content').style.display = 'block';
+
+//         localStorage.setItem('popupShown', 'true');
+
+//         document.querySelector('.btn-shop').addEventListener('click',function(){
+//             document.querySelector('.popup').style.display = 'none';
+
+//         });
+
+//         document.getElementById('closePopup').addEventListener('click', function() {
+//             document.querySelector('.popup').style.display = 'none';
+//         });
+
+//          // Đóng popup khi người dùng nhấn bất kỳ nơi nào bên ngoài popup
+
+//          window.addEventListener('click', function(event) {
+//             var popup = document.querySelector('.popup');
+//             if (event.target == popup) {
+//                 popup.style.display = 'none';
+//             }
+//         });
+//     }
+// });
 
 
         var inputBgColor = document.querySelector('.background');
