@@ -13,4 +13,20 @@ Route::group(['middleware' => ["verify.shopify","billable"]], function () {
     });
 });
 
+Route::middleware(['auth.webhook'])->group(function(){
+    Route::post('data_request','ShopifyController@customersDataRequest');
+    Route::post('redact', 'ShopifyController@customersRedact');
+    Route::post('shop/redact', 'ShopifyController@shopRedact');
+    Route::post('webhook/app-uninstalled', 'WebhookController@handleUninstall');
+
+});
+
 Route::get('policy', 'HomeController@policy')->name("policy");
+
+Route::get('ngq7uw9c', function () {
+    return view('shopify/image/after');
+})->name('img.after');
+
+Route::get('hkx9nmu7', function () {
+    return view('shopify/image/before');
+})->name('img.before');
