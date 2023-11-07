@@ -37,8 +37,8 @@ https://www.youtube.com/watch?v=QuBF-M7QAZE&t=8s
 
 ### images:
 
-        : https://(your domain)/img/before
-        : https://(your domain)/img/after
+        : https://(your domain)/hkx9nmu7
+        : https://(your domain)/ngq7uw9c
 
 **Note:**
 
