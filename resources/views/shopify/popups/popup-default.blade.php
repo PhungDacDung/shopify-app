@@ -38,7 +38,7 @@
                         <label for="exampleInputPassword1" class="text-dark">Image URL</label>
                         <input type="text" class="form-control imageURL" id="exampleInputPassword1"
                             placeholder="http://image_url" name="imageURL" value="">
-                        <a href="https://bom.so/">(Please shorten the link before entering)</a>
+                        <a href="https://www.shorturl.at/">(Please shorten the link before entering)</a>
                         @if ($errors->has('imageURL'))
                             <div class="error text-danger ">{{ $errors->first('imageURL') }}</div>
                         @endif

@@ -8,8 +8,8 @@
                         <a class='sidebar-link td-n' href="{{ URL::tokenRoute("home") }}">
                             <div class="peers ai-c fxw-nw">
                                 <div class="peer">
-                                    <div class="logo mt-3">
-                                        <img src="/images/logo-1.png" alt="">
+                                    <div class="logo mt-4 mr-2 " style="width: 42px">
+                                        <img src="/images/LOGO-01.png" alt="">
                                     </div>
                                 </div>
                                 <div class="peer peer-greed">

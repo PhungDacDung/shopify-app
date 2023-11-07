@@ -54,7 +54,7 @@
                         <div class="custom-file">
                             <label for="exampleInputPassword1" class="text-dark">Image URL</label>
                             <input type="text" class="form-control imageURL" id="exampleInputPassword1" placeholder="http://image_url" name="imageURL" value="{{ $popup["imageURL"] }}">
-                            <a href="https://bom.so/">(Please shorten the link before entering)</a>
+                            <a href="https://www.shorturl.at/">(Please shorten the link before entering)</a>
                             @if ($errors->has('imageURL'))
                                 <div class="error text-danger ">{{ $errors->first('imageURL') }}</div>
                             @endif
@@ -98,7 +98,7 @@
                                     style="width:380px">
                             </div>
                             <div>
-                                <button class="btn btn-success mt-3 btn-shop">Shop now</button>
+                                <button class="btn btn-success mt-3 btn-shop">Shop</button>
                             </div>
                         </div>
                     {{-- @endforeach --}}
@@ -130,6 +130,10 @@
         var inputDescription = document.querySelector('.inp-des')
         var imageURL = document.querySelector('.imageURL');
         var img = document.querySelector('.img-popup');
+
+        imageURL.addEventListener('change',function(){
+            location.reload();
+        });
         /* Change heading */
         inputHeading.addEventListener('change', function(element) {
             heading.innerHTML = inputHeading.value;
