@@ -10,7 +10,7 @@
                 <dl>
                     <dt>Step 1</dt>
                     <dd>
-                        After install <b>PopupQuickly</b>, click <i>Templates</i> menu to show the available effects.
+                        After install <b>Popup Quickly</b>, click <i>Templates</i> menu to show the available effects.
                     </dd>
                     <dt>Step 2</dt>
                     <dd>

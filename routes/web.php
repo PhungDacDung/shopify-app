@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Shopify\PopupController;
-
+use App\Http\Controllers\WebhookController;
 
 Route::group(['middleware' => ["verify.shopify","billable"]], function () {
     Route::get('/', "Shopify\DashboardController@index")->middleware([])->name("home");
@@ -14,10 +14,12 @@ Route::group(['middleware' => ["verify.shopify","billable"]], function () {
 });
 
 Route::middleware(['auth.webhook'])->group(function(){
+    Route::post('webhook/app-uninstalled',[WebhookController::class,'handleUninstall']);
     Route::post('data_request','ShopifyController@customersDataRequest');
     Route::post('redact', 'ShopifyController@customersRedact');
     Route::post('shop/redact', 'ShopifyController@shopRedact');
-    Route::post('webhook/app-uninstalled', 'WebhookController@handleUninstall');
+    // Route::post('webhook/app-uninstalled', 'WebhookController@handleUninstall');
+    // Route::post('webhook/app-uninstalled', [WebhookController::class,'handleUninstall']);
 
 });
 
