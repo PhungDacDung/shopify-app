@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
+use DateTime;
 use App\Models\User;
+use App\Models\Charge;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class StoreController extends Controller
 {
@@ -39,16 +41,32 @@ class StoreController extends Controller
             case 'orders/partially_fulfilled':
             case 'orders/delete':
             case "app/uninstalled":
+                \Log::warning('-----------');
+                \Log::warning($topic);
+                \Log::warning($shop);
                 $store = json_decode($data, true);
-                \Log::info($store);
-                User::where("name", $shop)->delete();
-                break;
-            default:
-                \Log::info($topic);
-                \Log::info(json_decode($data, true));
+                $getUser = User::where('name', $shop)->first();
+                $charge = Charge::where('user_id', $getUser->id)->first();
+                $now = new DateTime();
+                if ($charge) {
+                    $charge->status = "CANCELLED";
+                    $charge->cancelled_on = $now;
+                    $charge->deleted_at = $now;
+                    $charge->save();
+                }
+                if ($getUser) {
+                    $getUser->delete();
+                }
+
+                return response()->json(
+                    [],
+                    200
+                );
+                // User::where("name", $shop)->delete();
                 break;
         }
         return response()->json(["status" => "succeed"]);
+
     }
 
     /**

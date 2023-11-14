@@ -1,6 +1,4 @@
-<?php
-
-namespace App\Jobs;
+<?php namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -8,7 +6,6 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Osiset\ShopifyApp\Objects\Values\ShopDomain;
-use PgSql\Lob;
 use stdClass;
 
 class AppUninstallJob implements ShouldQueue
@@ -52,7 +49,6 @@ class AppUninstallJob implements ShouldQueue
     {
         // Convert domain
         $this->shopDomain = ShopDomain::fromNative($this->shopDomain);
-        \Log::info('sad');
 
         // Do what you wish with the data
         // Access domain name as $this->shopDomain->toNative()

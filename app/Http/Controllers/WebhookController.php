@@ -11,7 +11,6 @@ class WebhookController extends Controller
 
     public function handleUninstall(Request $request)
     {
-        dd($request->all());
         $getUser = User::where('name', $request->shop_domain)->first();
         if ($getUser) {
             $getUser->delete();
