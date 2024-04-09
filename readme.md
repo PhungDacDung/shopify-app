@@ -2,7 +2,7 @@
 
 ```bash
 
-git clone http://git.minhhoangjsc.com:8080/shopify-apps/popup_quickly.git
+git clone https://github.com/PhungDacDung/shopify-app.git
 
 cd popuppopup_quickly
 composer install
