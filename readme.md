@@ -31,14 +31,9 @@ policy:
         : https://()/policy
 ```
 
-## video
 
-https://www.youtube.com/watch?v=QuBF-M7QAZE&t=8s
 
-### images:
 
-        : https://(your domain)/hkx9nmu7
-        : https://(your domain)/ngq7uw9c
 
 **Note:**
 
